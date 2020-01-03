@@ -1,1 +1,26 @@
+package javaapplication385;
 
+import java.util.Scanner;
+
+public class JavaApplication385 {
+
+    public static int kontrol = 0;
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int dizi[] = {1, 12, 67, 89, 23, 56, 78, 27, 2};
+        int yenidizi[] = terscevir(dizi);
+    }
+
+    public static int[] terscevir(int[] dizi) {
+        if (dizi.length / 2 == kontrol) {
+            return dizi;
+        }
+        int deger = dizi[kontrol];
+        dizi[kontrol] = dizi[(dizi.length - 1) - kontrol];
+        dizi[(dizi.length - 1) - kontrol] = deger;
+        kontrol = kontrol + 1;
+        return terscevir(dizi);
+
+    }
+}
